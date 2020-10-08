@@ -38,7 +38,7 @@
            Для хеш массива вывод необходимо организовать в виде иерархии.
         </p>
       </td>
-      <td></td>
+      <td><a href="https://github.com/ElDmitry/OPPPO/commit/eada573d8e81aacdc4fbc9775d5e6af40b2e4d4c">eada573</a></td>
       <td></td>
       <td></td>
     </tr>
