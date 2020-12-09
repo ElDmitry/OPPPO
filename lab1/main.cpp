@@ -27,6 +27,7 @@ int main() {
 
     // Вывод на экран
     // Поскольку хеш считается от указателя, разные объекты, пусть и эквивалентные, могут попасть в разные bucket-ы
+    std::cout << "The number of elements in the hash table: " << container.size() << "\n";
     container.printOnScreen();
 
     return 0;

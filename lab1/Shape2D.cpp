@@ -5,18 +5,6 @@
 namespace lab1
 {
 
-Shape2D::Shape2D()
-{
-}
-
-Shape2D::Shape2D(Color color) : m_color(color)
-{
-}
-
-Shape2D::~Shape2D() {
-
-}
-
 std::string Shape2D::typeName() const {
     return std::move(std::string("Shape2D"));
 }
@@ -68,6 +56,37 @@ std::ostream & operator<<(std::ostream &ost, const std::shared_ptr<Shape2D> &sha
         shape->write(ost);
     }
     return ost;
+}
+
+Shape2D::Shape2D(Color color) : m_color(color)
+{
+}
+
+std::istream & operator>>(std::istream &ist, Color &color) {
+    std::string colorName;
+    ist >> colorName;
+    if (colorName == "RED") color = Color::RED;
+    else if (colorName == "ORANGE") color = Color::ORANGE;
+    else if (colorName == "YELLOW") color = Color::YELLOW;
+    else if (colorName == "GREEN") color = Color::GREEN;
+    else if (colorName == "LIGHT_BLUE") color = Color::LIGHT_BLUE;
+    else if (colorName == "BLUE") color = Color::BLUE;
+    else if (colorName == "PURPLE") color = Color::PURPLE;
+    return ist;
+}
+
+std::ostream & operator<<(std::ostream &ost, const Color &color) {
+    std::string colorName;
+    switch (color) {
+        case Color::RED: colorName = "RED"; break;
+        case Color::ORANGE: colorName = "ORANGE"; break;
+        case Color::YELLOW: colorName = "YELLOW"; break;
+        case Color::GREEN: colorName = "GREEN"; break;
+        case Color::LIGHT_BLUE: colorName = "LIGHT_BLUE"; break;
+        case Color::BLUE: colorName = "BLUE"; break;
+        case Color::PURPLE: colorName = "PURPLE"; break;
+    }
+    return ost << colorName;
 }
 
 } // namespace lab1
