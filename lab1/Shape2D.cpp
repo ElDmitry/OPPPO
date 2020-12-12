@@ -1,6 +1,7 @@
 #include "Shape2D.h"
 #include "Circle.h"
 #include "Rectangle.h"
+#include "Triangle.h"
 
 namespace lab1
 {
@@ -16,6 +17,9 @@ Shape2D * Shape2D::createShape(const std::string &typeName) {
     }
     else if (typeName == "Rectangle") {
         shape = new Rectangle();
+    }
+    else if (typeName == "Triangle") {
+        shape = new Triangle();
     }
 
     return shape;
@@ -58,7 +62,7 @@ std::ostream & operator<<(std::ostream &ost, const std::shared_ptr<Shape2D> &sha
     return ost;
 }
 
-Shape2D::Shape2D(Color color) : m_color(color)
+Shape2D::Shape2D(const Color &color) : m_color(color)
 {
 }
 

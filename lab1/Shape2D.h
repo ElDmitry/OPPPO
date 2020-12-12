@@ -28,7 +28,7 @@ std::ostream & operator<<(std::ostream &ost, const Color &color);
 class Shape2D {
 public:
     Shape2D() = default;
-    explicit Shape2D(Color color);
+    explicit Shape2D(const Color &color);
 
     virtual ~Shape2D() = default;
 
