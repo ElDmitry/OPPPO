@@ -13,7 +13,8 @@ public:
     using Point = std::pair<double, double>;
 
     Rectangle();
-    explicit Rectangle(Color color, Point topLeft = Point(0., 0.), Point bottomRight = Point(0., 0.));
+    explicit Rectangle(const Color &color, Point topLeft = Point(0., 0.),
+                       Point bottomRight = Point(0., 0.));
 
     std::istream & read(std::istream &ist) override;
     std::ostream & write(std::ostream &ost) const override;

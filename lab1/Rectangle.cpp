@@ -1,5 +1,7 @@
 #include "Rectangle.h"
 
+#include <utility>
+
 namespace lab1
 {
 
@@ -7,8 +9,8 @@ Rectangle::Rectangle() : Shape2D()
 {
 }
 
-Rectangle::Rectangle(Color color, Rectangle::Point topLeft, Rectangle::Point bottomRight)
-    : Shape2D(color), m_topLeft(topLeft), m_bottomRight(bottomRight)
+Rectangle::Rectangle(const Color &color, Point topLeft, Point bottomRight)
+    : Shape2D(color), m_topLeft(std::move(topLeft)), m_bottomRight(std::move(bottomRight))
 {
 }
 

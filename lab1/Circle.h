@@ -12,7 +12,7 @@ public:
     using Point = std::pair<int, int>;
 
     Circle();
-    explicit Circle(Color color, Point center = Point(0, 0), int radius = 0);
+    explicit Circle(const Color &color, Point center = Point(0, 0), int radius = 0);
 
     std::istream & read(std::istream &ist) override;
     std::ostream & write(std::ostream &ost) const override;

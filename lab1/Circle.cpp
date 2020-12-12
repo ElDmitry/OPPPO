@@ -1,13 +1,15 @@
 #include "Circle.h"
 
+#include <utility>
+
 namespace lab1 {
 
 lab1::Circle::Circle() : Shape2D()
 {
 }
 
-Circle::Circle(Color color, Point center, int radius)
-    : Shape2D(color), m_center(center), m_radius(radius)
+Circle::Circle(const Color &color, Point center, int radius)
+    : Shape2D(color), m_center(std::move(center)), m_radius(radius)
 {
 }
 
