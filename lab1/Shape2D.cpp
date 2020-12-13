@@ -26,11 +26,11 @@ Shape2D * Shape2D::createShape(const std::string &typeName) {
 }
 
 std::istream &Shape2D::read(std::istream &ist) {
-    return deserialize(ist, m_color, m_lastEdit);
+    return deserialize(ist, m_color, m_lastEdit, m_lineType);
 }
 
 std::ostream &Shape2D::write(std::ostream &ost) const {
-    return serialize(ost, m_color, m_lastEdit);
+    return serialize(ost, m_color, m_lastEdit, m_lineType);
 }
 
 std::istream & operator>>(std::istream &ist, std::shared_ptr<Shape2D> &shape) {
@@ -91,6 +91,27 @@ std::ostream & operator<<(std::ostream &ost, const Color &color) {
         case Color::PURPLE: colorName = "PURPLE"; break;
     }
     return ost << colorName;
+}
+
+std::istream & operator>>(std::istream &ist, LineType &type) {
+    std::string typeName;
+    ist >> typeName;
+    if (typeName == "SOLID") type = LineType::SOLID;
+    else if (typeName == "BLANK") type = LineType::BLANK;
+    else if (typeName == "DASHED") type = LineType::DASHED;
+    else if (typeName == "DOTTED") type = LineType::DOTTED;
+    return ist;
+}
+
+std::ostream & operator<<(std::ostream &ost, const LineType &type) {
+    std::string typeName;
+    switch (type) {
+        case LineType::SOLID: typeName = "SOLID"; break;
+        case LineType::BLANK: typeName = "BLANK"; break;
+        case LineType::DASHED: typeName = "DASHED"; break;
+        case LineType::DOTTED: typeName = "DOTTED"; break;
+    }
+    return ost << typeName;
 }
 
 } // namespace lab1

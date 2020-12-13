@@ -23,6 +23,16 @@ enum class Color {
 std::istream & operator>>(std::istream &ist, Color &color);
 std::ostream & operator<<(std::ostream &ost, const Color &color);
 
+enum class LineType {
+    SOLID = 0, // ⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    BLANK,     //
+    DASHED,    // ----------
+    DOTTED     // ..........
+};
+
+std::istream & operator>>(std::istream &ist, LineType &type);
+std::ostream & operator<<(std::ostream &ost, const LineType &type);
+
 
 /// Родительский класс для плоских геометрических фигур
 class Shape2D {
@@ -45,6 +55,7 @@ public:
 private:
     Color m_color { Color::RED };
     Date m_lastEdit {};
+    LineType m_lineType { LineType::SOLID };
 };
 
 std::istream & operator>>(std::istream &ist, std::shared_ptr<Shape2D> &shape);

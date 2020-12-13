@@ -10,10 +10,10 @@ int main() {
     using namespace lab1;
 
     std::string simpleTest[] = {
-            "Circle GREEN 01:01:2000 5 10 7\n",
-            "Rectangle PURPLE 20:20:2020 0 0 1.41 3.14\n", // нет проверки корректности даты
-            "Circle RED 02:02:2020 1 2 3",
-            "Triangle ORANGE 12:12:2020 0.1 1.5 4.8 3.2 0.1 5"
+            "Circle GREEN 01:01:2000 SOLID 5 10 7\n",
+            "Rectangle PURPLE 20:20:2020 BLANK 0 0 1.41 3.14\n", // нет проверки корректности даты
+            "Circle RED 02:02:2020 DASHED 1 2 3",
+            "Triangle ORANGE 12:12:2020 DOTTED 0.1 1.5 4.8 3.2 0.1 5"
     };
 
     std::stringstream ss;
