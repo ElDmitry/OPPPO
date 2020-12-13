@@ -38,14 +38,15 @@
            Для хеш массива вывод необходимо организовать в виде иерархии.
         </p>
       </td>
-      <td><a href="https://github.com/ElDmitry/OPPPO/commit/eada573d8e81aacdc4fbc9775d5e6af40b2e4d4c">eada573</a></td>
+      <td><a href="https://github.com/ElDmitry/OPPPO/commit/eada573d8e81aacdc4fbc9775d5e6af40b2e4d4c">eada573</a><br>
+          <a href="https://github.com/ElDmitry/OPPPO/commit/5c2807212ad481c8b75b187db1d4a1fbd6010d13">5c28072</a> </td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>2</td>
       <td>Добавление нового типа объекта.</td>
-      <td></td>
+      <td><a href="https://github.com/ElDmitry/OPPPO/commit/810cd0205c94f940dbcda7200b31e8e74e4c8e43">810cd02</a> </td>
       <td></td>
       <td></td>
     </tr>
