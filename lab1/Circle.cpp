@@ -1,8 +1,13 @@
 #include "Circle.h"
 
+#include <cmath>
 #include <utility>
 
 namespace lab1 {
+
+namespace {
+    constexpr double PI = 3.14159265358979323846;
+}
 
 lab1::Circle::Circle() : Shape2D()
 {
@@ -29,6 +34,10 @@ std::ostream & Circle::write(std::ostream &ost) const {
 
 std::string Circle::typeName() const {
     return std::move(std::string("Circle"));
+}
+
+double Circle::area() const {
+    return PI * m_radius * m_radius;
 }
 
 

@@ -2,6 +2,7 @@
 #define MYHASHTABLE_H
 
 #include <memory>
+#include <functional>
 
 namespace lab1
 {
@@ -146,6 +147,8 @@ public:
     bool erase(const T &value);
     void clear();
     void rehash(size_t count);
+
+    const_iterator max_element(const std::function<bool(const T&, const T&)> &comp = std::less<T>());
 
 //======================================================================================================================
 // Приватные поля хеш-таблицы

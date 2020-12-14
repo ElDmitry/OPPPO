@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <memory>
+#include <algorithm>
 
 int main() {
 
@@ -30,6 +31,11 @@ int main() {
     // Поскольку хеш считается от указателя, разные объекты, пусть и эквивалентные, могут попасть в разные bucket-ы
     std::cout << "The number of elements in the hash table: " << container.size() << "\n";
     container.printOnScreen();
+
+    // Выводим фигуру с максимальной площадью
+    auto maxIt = container.max_element([](const pShape2D &a, const pShape2D &b) {
+                                            return a->area() < b->area(); });
+    std::cout << "Max element: " << *maxIt << "\nMax area: " << (*maxIt)->area() << "\n";
 
     return 0;
 }

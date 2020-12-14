@@ -34,6 +34,16 @@ std::string Triangle::typeName() const {
     return std::move(std::string("Triangle"));
 }
 
+double Triangle::area() const {
+    double a = distance(m_firstPoint.first, m_firstPoint.second, m_secondPoint.first, m_secondPoint.second);
+    double b = distance(m_firstPoint.first, m_firstPoint.second, m_thirdPoint.first, m_thirdPoint.second);
+    double c = distance(m_secondPoint.first, m_secondPoint.second, m_thirdPoint.first, m_thirdPoint.second);
+
+    double p = 0.5 * (a + b + c);
+
+    return sqrt(p * (p - a) * (p - b) * (p - c));
+}
+
 std::istream & operator>>(std::istream &ist, Triangle &triangle) {
     std::string typeName;
     if (ist >> typeName && typeName == triangle.typeName()) {

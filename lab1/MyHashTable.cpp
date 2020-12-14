@@ -162,6 +162,17 @@ double MyHashTable<T>::loadFactor() const {
     return static_cast<double>(m_elementsCount) / m_bucketsCount;
 }
 
+template<class T>
+typename MyHashTable<T>::const_iterator MyHashTable<T>::max_element(const std::function<bool(const T&, const T&)> &comp) {
+    auto max = begin();
+    for (auto it = begin(); it != end(); ++it) {
+        if (comp(*max, *it)) {
+            max = it;
+        }
+    }
+    return max;
+}
+
 
 template<class T>
 typename MyHashTable<T>::Bucket::const_iterator MyHashTable<T>::Bucket::find(const T &value) const {

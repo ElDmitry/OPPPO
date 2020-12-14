@@ -34,6 +34,10 @@ std::string Rectangle::typeName() const {
     return std::move(std::string("Rectangle"));
 }
 
+double Rectangle::area() const {
+    return abs(m_bottomRight.first - m_topLeft.first) * abs(m_topLeft.second - m_bottomRight.second);
+}
+
 
 std::istream & operator>>(std::istream &ist, Rectangle &rectangle) {
     std::string typeName;

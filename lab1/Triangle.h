@@ -14,6 +14,8 @@ public:
     Triangle();
     Triangle(const Color &color, Point x, Point y, Point z);
 
+    double area() const override;
+
     std::istream & read(std::istream &ist) override;
     std::ostream &write(std::ostream &ost) const override;
 

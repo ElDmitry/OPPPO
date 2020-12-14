@@ -16,6 +16,8 @@ public:
     explicit Rectangle(const Color &color, Point topLeft = Point(0., 0.),
                        Point bottomRight = Point(0., 0.));
 
+    double area() const override;
+
     std::istream & read(std::istream &ist) override;
     std::ostream & write(std::ostream &ost) const override;
 

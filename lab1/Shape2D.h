@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <utility>
 
 namespace lab1
 {
@@ -41,6 +42,9 @@ public:
     explicit Shape2D(const Color &color);
 
     virtual ~Shape2D() = default;
+
+    /// Возвращает площадь фигуры
+    virtual double area() const = 0;
 
     /// Считывает данные полей класса
     virtual std::istream & read(std::istream &ist);
@@ -84,6 +88,12 @@ std::istream & deserialize(std::istream &ist, T &t, Args&... args) {
     // возможно надо добавить обработку ошибок
     ist >> t;
     return deserialize(ist, args...);
+}
+
+/// Возвращает расстояние между двумя точками
+template <typename T>
+double distance(T x1, T y1, T x2, T y2) {
+    return sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1));
 }
 
 } // namespace lab1
