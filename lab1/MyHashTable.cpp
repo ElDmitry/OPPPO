@@ -200,6 +200,18 @@ MyHashTable<T>::sort(const std::function<bool(const_reference, const_reference)>
     return std::move(vec);
 }
 
+template<class T>
+void MyHashTable<T>::erase_if(const std::function<bool(const_reference)> &pred) {
+    for (auto it = begin(); it != end(); ) {
+        if (pred(*it)) {
+            auto tmp = it++;
+            erase(*tmp);
+        } else {
+            ++it;
+        }
+    }
+}
+
 
 template<class T>
 typename MyHashTable<T>::Bucket::const_iterator MyHashTable<T>::Bucket::find(const T &value) const {

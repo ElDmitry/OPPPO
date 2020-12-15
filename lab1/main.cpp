@@ -45,5 +45,9 @@ int main() {
         std::cout << *it << " area: " << (*it)->area() << "\n";
     }
 
+    std::cout << "Remove all circles:\n";
+    container.erase_if([](const pShape2D &s) { return s->typeName() == "Circle"; });
+    container.printOnScreen();
+
     return 0;
 }

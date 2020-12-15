@@ -156,6 +156,8 @@ public:
     void clear();
     void rehash(size_t count);
 
+    void erase_if(const std::function<bool(const_reference)> &pred);
+
     const_iterator
         max_element(const std::function<bool(const_reference, const_reference)> &comp = std::less<value_type>()) const;
 
