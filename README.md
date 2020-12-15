@@ -53,28 +53,28 @@
     <tr>
       <td>3</td>
       <td>Добавление нового свойства во все типы обрабатываемых объектов.</td>
-      <td></td>
+      <td><a href="https://github.com/ElDmitry/OPPPO/commit/cc190aae5009b68b3150c46b47399d690d506190">cc190aa</a> </td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>4</td>
       <td>Добавление новой функциональности – функции или метода, выполняющего обработку объектов, считываемых с файла.</td>
-      <td></td>
+      <td><a href="https://github.com/ElDmitry/OPPPO/commit/f48c28181493de88f8396fbac47139005d20daed">f48c281</a> </td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>5</td>
       <td>Добавить в контейнер функцию сортировки в соответствии с вариантом.</td>
-      <td></td>
+      <td><a href="https://github.com/ElDmitry/OPPPO/commit/6dcf0c15341d6aa3f356f9c787aaac510867ac15">6dcf0c1</a> </td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>6</td>
       <td>Добавить в контейнер функцию удаления объектов с определенными свойствами.</td>
-      <td></td>
+      <td><a href="https://github.com/ElDmitry/OPPPO/commit/f5d6751ecc87418a661952633ec00eb75b46796a">f5d6751</a> </td>
       <td></td>
       <td></td>
     </tr>
