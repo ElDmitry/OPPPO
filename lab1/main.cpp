@@ -4,7 +4,6 @@
 #include <iostream>
 #include <sstream>
 #include <memory>
-#include <algorithm>
 
 int main() {
 
@@ -36,6 +35,15 @@ int main() {
     auto maxIt = container.max_element([](const pShape2D &a, const pShape2D &b) {
                                             return a->area() < b->area(); });
     std::cout << "Max element: " << *maxIt << "\nMax area: " << (*maxIt)->area() << "\n";
+
+    // Сортируем контейнер по возрастанию площади фигур
+    auto sorted = container.sort([](const pShape2D &a, const pShape2D &b) {
+                                return a->area() > b->area(); });
+
+    std::cout << "Elements are sorted in ascending area:\n";
+    for (auto it : sorted) {
+        std::cout << *it << " area: " << (*it)->area() << "\n";
+    }
 
     return 0;
 }

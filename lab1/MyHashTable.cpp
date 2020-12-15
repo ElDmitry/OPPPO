@@ -163,7 +163,8 @@ double MyHashTable<T>::loadFactor() const {
 }
 
 template<class T>
-typename MyHashTable<T>::const_iterator MyHashTable<T>::max_element(const std::function<bool(const T&, const T&)> &comp) {
+typename MyHashTable<T>::const_iterator
+MyHashTable<T>::max_element(const std::function<bool(const_reference, const_reference)> &comp) const {
     auto max = begin();
     for (auto it = begin(); it != end(); ++it) {
         if (comp(*max, *it)) {
@@ -171,6 +172,32 @@ typename MyHashTable<T>::const_iterator MyHashTable<T>::max_element(const std::f
         }
     }
     return max;
+}
+
+template<class T>
+const std::vector<typename MyHashTable<T>::const_iterator>
+MyHashTable<T>::sort(const std::function<bool(const_reference, const_reference)> &comp) const {
+    std::vector<const_iterator> vec(0);
+    vec.reserve(m_elementsCount);
+
+    for (auto it = begin(); it != end(); ++it) {
+        vec.push_back(it);
+    }
+
+    size_t size = vec.size();
+    bool sorted = (size == 0 || size == 1) ? true : false;
+    while (!sorted) {
+        sorted = true;
+        for (size_t i = 1; i < size; ++i) {
+            if (comp(*vec[i - 1], *vec[i])) {
+                std::swap(vec[i - 1], vec[i]);
+                sorted = false;
+            }
+        }
+        --size;
+    }
+
+    return std::move(vec);
 }
 
 

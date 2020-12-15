@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <functional>
+#include <vector>
 
 namespace lab1
 {
@@ -11,6 +12,7 @@ namespace lab1
 template<class T>
 class MyHashTable {
 public:
+    using value_type       = T;
     using const_value_type = T const;
     using const_pointer    = T const *;
     using const_reference  = T const &;
@@ -50,7 +52,10 @@ private: // Определяем внутренние структуры дан�
                                  const_reference> {
             const_iterator() = default;
             const_iterator(const const_iterator &) = default;
+            const_iterator(const_iterator &&) noexcept = default;
+
             const_iterator & operator=(const const_iterator &) = default;
+            const_iterator & operator=(const_iterator &&) noexcept = default;
 
             explicit const_iterator(const Node *ptr) : m_ptr(ptr) {}
 
@@ -112,7 +117,10 @@ public:
                             const_reference> {
         const_iterator() = default;
         const_iterator(const const_iterator &) = default;
+        const_iterator(const_iterator &&) noexcept = default;
+
         const_iterator & operator=(const const_iterator &) = default;
+        const_iterator & operator=(const_iterator &&) noexcept = default;
 
         friend MyHashTable;
 
@@ -128,9 +136,9 @@ public:
                                 size_t bucketIndex,
                                 const const_local_iterator &localIt = const_local_iterator());
 
-        const MyHashTable<T> *m_hashTable{nullptr};
-        size_t m_bucketIdx{0};
-        const_local_iterator m_localIter{};// Bucket::end()
+        const MyHashTable<T> *m_hashTable {nullptr};
+        size_t m_bucketIdx {0};
+        const_local_iterator m_localIter {};// Bucket::end()
     };
 
     const_iterator begin() const;
@@ -148,7 +156,11 @@ public:
     void clear();
     void rehash(size_t count);
 
-    const_iterator max_element(const std::function<bool(const T&, const T&)> &comp = std::less<T>());
+    const_iterator
+        max_element(const std::function<bool(const_reference, const_reference)> &comp = std::less<value_type>()) const;
+
+    const std::vector<const_iterator>
+        sort(const std::function<bool(const_reference, const_reference)> &comp = std::greater<value_type>()) const;
 
 //======================================================================================================================
 // Приватные поля хеш-таблицы
